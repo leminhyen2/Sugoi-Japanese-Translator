@@ -1,5 +1,5 @@
 {
-    "hideBrowserWindowTrueOrFalse": false,
+    "hideBrowserWindowTrueOrFalse": true,
     "DeepL": {
         "originalLanguage": "ja",
         "translationLanguage": "en",
