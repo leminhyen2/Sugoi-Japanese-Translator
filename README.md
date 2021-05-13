@@ -1,0 +1,1 @@
+# Sugoi-Japanese-Translator
