@@ -4,12 +4,12 @@ backendServer/node.exe
 backendServer/package-lock.json
 backendServer/debug.log
 
-backendServer/node_modules
-backendServer/fairseq/Python38
-backendServer/fairseq/build
-backendServer/fairseq/japaneseModel
-backendServer/package-lock.json
-backendServer/debug.log
+offlineTranslation/node_modules
+offlineTranslation/fairseq/Python38
+offlineTranslation/fairseq/build
+offlineTranslation/fairseq/japaneseModel
+offlineTranslation/package-lock.json
+offlineTranslation/debug.log
 
 userInterface/*
 !userInterface/resources
