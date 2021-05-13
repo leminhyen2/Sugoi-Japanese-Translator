@@ -1,5 +1,11 @@
 In V2.0, there are an optional dictionary and three translators: DeepL, Papago, and Offline
 
+SETTINGS:
+In V2.0, you can now easily change translation language to other language like Spanish or French, or many more
+Open Settings.json with notepad or notepad++ then edit the translation language abbreviation to your language of choice 
+Check the DeepL and Papago URL for the abbreviation of translation language
+
+
 DICTIONARY PROGRAM: 
 Go to dictionary program folder and click on the exe
 The program listened to clipboard and will offer text highlighting and definition lookup
