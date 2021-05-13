@@ -1,6 +1,6 @@
 # Sugoi-Japanese-Translator
 
-# Youtube Link:
+# Youtube Link (Download and Discord):
 https://www.youtube.com/watch?v=r8xFzVbmo7k
 
 # Workflow:
