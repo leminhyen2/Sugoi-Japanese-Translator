@@ -4,6 +4,6 @@
 https://www.youtube.com/watch?v=r8xFzVbmo7k
 
 # Workflow:
-1. download the program
-2. edit the code directly (no need to clone)
-3. add commit push (you should make another branch beforehand)
+1. Download the program
+2. Edit the code directly (no need to clone)
+3. Add commit push (you should make another branch beforehand)
