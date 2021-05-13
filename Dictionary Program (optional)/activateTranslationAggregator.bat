@@ -1,0 +1,1 @@
+.\TranslationAggregator.exe

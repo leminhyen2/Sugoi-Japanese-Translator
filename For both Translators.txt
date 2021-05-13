@@ -1,0 +1,12 @@
+Each translator can take around 3-5 seconds to setup everything when first opened.
+To make sure the translator is working fine, I suggest copying 3 random Japanese sentences in the beginning to make sure everything works
+Feel free to use the phrases I prepared below
+
+はい。
+いいえ。
+おねがいします。
+ありがとう。
+どういたしまして。
+すみません。
+ごめんなさい。
+おはようございます。

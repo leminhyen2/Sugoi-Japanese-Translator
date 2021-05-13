@@ -1,0 +1,31 @@
+{
+    "hideBrowserWindowTrueOrFalse": false,
+    "DeepL": {
+        "originalLanguage": "ja",
+        "translationLanguage": "en",
+        "inputTextboxID": "#source-dummydiv",
+        "resultTextboxID": "#target-dummydiv",
+        "initialPhrase": "こんにちは DeepL"
+    },
+    "Papago": {
+        "originalLanguage": "ja",
+        "translationLanguage": "en",
+        "inputTextboxID": "#txtSource",
+        "resultTextboxID": "#txtTarget",
+        "initialPhrase": "こんにちは Papago"
+    },
+    "SYSTRAN": {
+        "originalLanguage": "ja",
+        "translationLanguage": "en",
+        "inputTextboxID": ".htmlEditor",
+        "resultTextboxID": "#outputEditor",
+        "initialPhrase": "こんにちは SYSTRAN"
+    },
+    "Google": {
+        "originalLanguage": "ja",
+        "translationLanguage": "en",
+        "inputTextboxID": "#fakeArea",
+        "resultTextboxID": "#translation",
+        "initialPhrase": "こんにちは Google"
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="slide-menu.css" rel="stylesheet">
+<link href="menu.css" rel="stylesheet">
+<style>
+
+html {
+    /* background-color: rgb(83, 83, 83); */
+    /* background-color: white; */
+    /*color: black;*/
+    /*display:block;*/
+    /*box-sizing: border-box;*/
+}
+
+body {
+    overflow-y: scroll;
+    padding: 0;
+	margin: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+select {
+    width: 100%;
+}
+
+</style>
+</head>
+<body >
+<div id="menubar">
+  <div class="left" role="menu">
+  	<button class="menubar-btn btn slide-menu__control" type="button" id="menu-btn" data-target="example-menu" data-action="toggle">≡</button>
+    <h5>&nbsp;Sugoi Japanese Translator v1.5</h5>
+  </div>
+  <div class="right">
+    <button class="menubar-btn" id="close-btn">✖</button>
+  </div>
+</div>
+<nav class="slide-menu menubar-btn" style="color:white;" id="example-menu">
+  <div class="controls">
+        <button type="button" class="btn slide-menu__control" data-action="close">Save & Close Menu</button>
+      </div>
+  <ul>
+  	<li style="padding-top: 4px;">
+  	  <label style="padding-top: 3px">Theme</label><br>
+  	  <!--<input type="color" value="#34475a">-->
+  	  <input type="color" id="baccolor" list="presetColors2">
+	  <!--<input type="color" id="favcolor2" list="presetColors">-->
+	  <datalist id="presetColors">
+		<option>#2ECC71</option>
+		<option>#3498DB</option>
+		<option>#9B59B6</option>
+		<option>#34495E</option>
+		<option>#F1C40F</option>
+		<option>#E67E22</option>
+		<option>#E74C3C</option>
+		<option>#95A5A6</option>
+		<option>#FFFFFF</option>
+		<option>#000000</option>
+	  </datalist>
+	  <datalist id="presetColors2">
+		<option>#2ECC71</option>	
+		<option>#3498DB</option>
+		<option>#9B59B6</option>
+		<option>#34495E</option>
+		<option>#F1C40F</option>
+		<option>#E67E22</option>
+		<option>#E74C3C</option>
+		<option>#95A5A6</option>
+		<option>#808080</option>
+		<option>#000000</option>
+	  </datalist>
+	  <input type="range" id="opacolor" max="1" min="0" step='0.05'>
+	</li>
+    <hr>
+    <li>
+      <label >Window</label><br>
+      <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" checked>
+      <label for="subscribeNews">Show Title Bar</label>
+      <input type="checkbox" id="subscribeNews3" name="subscribe3" value="newsletter3" checked>
+      <label for="subscribeNews3">Show Box</label>  
+      <!--<label for="baccolor">Background</label><br>
+      <input type="color" id="baccolor" value="#34475a">
+      <input type="color" id="baccolor" list="presetColors">-->
+    </li>
+    <hr>
+    <li>
+      <label for="selecth1FontFamily">Font</label><br>
+      <select id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();">
+   <option>Select Font</option>                         
+	  </select>
+      <input type="number" id="creaseFontSize" value="18" onclick="creaseFontSize()">
+      <!--<input type="button" value="-1" onclick="decreaseFontSizeBy1px()">
+      <input type="button" value="+1" onclick="increaseFontSizeBy1px()">-->
+      <!--<input type="color" id="favcolor" value="#ebe8db">-->
+      <input type="color" id="favcolor" list="presetColors">
+      <input type="checkbox" id="subscribeNews2" name="subscribe2" value="newsletter2" checked>
+      <label for="subscribeNews2">Shade</label>
+    </li>
+    <hr>
+    <li>
+      <label >Japanese Font</label><br>
+      <input type="number" id="creaseFontSize2" value="18" onclick="creaseFontSize2()">
+      <!--<input type="color" id="favcolor3" value="#ebe8db">-->
+      <input type="color" id="favcolor3" list="presetColors">
+      <input type="checkbox" id="subscribeNews4" name="subscribe4" value="newsletter4" checked>
+      <label for="subscribeNews4">Shade</label>
+    </li>
+    <hr>
+  </ul>
+</nav>
+<div id="container">	
+<div id="translatedText">Text copied to clipboard manually or programatically will show up here along with the translation.</div>
+<div id="extractedText">よろしく</div>
+<div id="extraNote">Bonus: Try out my two other programs if you haven't yet: Manga Rikai OCR and Visual Novel OCR</div>
+
+<!-- <div id="menuContainer" class="container">
+    <select name="translation" id="translationSelection">
+        <option value="DeepL">DeepL (most accurate)</option>
+        <option value="Bing">Bing (fastest)</option>
+        <option value="Offline Translator">Offline Translator (good backup)</option>
+    </select>
+</div> -->
+</div>
+<script src="slide-menu.js"></script>
+<script src="translationWindow.js"></script>
+<script src="menu.js"></script>
+</body>
+</html>

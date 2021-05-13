@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="mainMenuWindow.css" />
+  </head>
+  <body style="-webkit-app-region: drag">
+    <div id="messageContainer" class="container">Message Box</div>
+    
+    <div id="menuContainer" class="container">
+      <button id="generateAllWindow">Generate All Window</button>
+      <button id="generateImageSettingsWindow">Generate Image Setting Window</button>
+      <button id="generateTextCaptureWindow">Generate Text Capture Window</button>
+      <button id="generateTranslationWindow">Generate Translation Window</button>
+    </div>
+
+    <div id="menuContainer" class="container">
+      <label for="languages">Translation Language:</label>
+      <select name="languages" id="languagesSelection"></select>
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./mainMenuWindow.js"></script>
+  </body>
+</html>

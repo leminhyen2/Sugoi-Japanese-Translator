@@ -1,0 +1,26 @@
+button {
+    margin: 7px;
+    background-color: #d8e9d9; /* Green */
+    border-radius: 12px;
+    color: black;
+    padding: 8px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+button:active {
+  background-color: #82dd86;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.container {
+    border: 3px solid black;
+    margin: 7px;
+}
+
+#menuContainer {
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+Text copied to clipboard manually or programatically will show up here along with the translation. 
+
+Bonus: Try out my two other programs if you haven't yet: Manga Rikai OCR and Visual Novel OCR
+
+Note: DO NOT MINIMIZE CHROMIUM, instead, resize the browser window and put it behind the game window (examples in folder)
+
+There is a way to not show Chromium and I included it in the folder. 
+Open "DeepL-Settings.json" with notepad or notepad++ 
+Change "hideBrowserWindowTrueOrFalse" to true to hide browserWindow
+I set the default way with browser opened because there is a possibility DeepL asked you to solve Captcha
+
+This program used web-scraping for DeepL so it relies on fixed HTML id on the website. 
+I included "inputTextboxID" and "resultTextboxID" in the settings. 
+If the program somehow not worked, you might want to recheck the id on the page 

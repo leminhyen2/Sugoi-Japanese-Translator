@@ -1,0 +1,14 @@
+V1.0:
+Basic translation window
+DeepL browser window is shown by default
+DeepL Translation is "repeated" 2 or 3 times
+
+V1.5: 
+BIG UPDATE to translation window (tons of customization)
+DeepL browser window is hidden by default
+No more stuttering from DeepL (instant translation)
+
+V1.6.5: 
+Change new copied text listening module (reduce lag and anti-malware block)
+Add a new line in batch script to force start from current directory
+Remove unnecessary files

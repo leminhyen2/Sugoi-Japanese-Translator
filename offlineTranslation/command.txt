@@ -1,0 +1,25 @@
+python3 interactive.py --path ../testModel/model.pt ../testModel --beam 5 --source-lang en --target-lang fr --tokenizer moses --bpe subword_nmt --bpe-codes ../testModel/bpecodes
+
+python3 interactive.py --path ../japaneseModel/big.pretrain.pt ../japaneseModel --max-tokens 1000 --beam 6 --lenpen 1.0 --source-lang ja --target-lang en --remove-bpe
+
+https://github.com/sharad461/nepali-translator/blob/master/translator/app/modules/interactive.py
+
+python3 $FAIRSEQ/preprocess.py \
+    --source-lang $SRC \
+    --target-lang $TRG \
+    --testpref $TEST_PREFIX \
+    --destdir $DATA_DIR \
+    --srcdict $SRC_VOCAB \
+    --tgtdict $TRG_VOCAB \
+    --workers `nproc` \
+
+
+python3 $FAIRSEQ/generate.py $DATA_DIR \
+    --gen-subset test \
+    --path $MODEL_FILE \
+    --max-tokens 1000 \
+    --beam 6 \
+    --lenpen 1.0 \
+    --log-format simple \
+    --remove-bpe \
+    | tee $OUT_DIR/$B.hyp
