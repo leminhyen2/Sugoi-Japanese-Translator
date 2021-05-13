@@ -1,0 +1,38 @@
+In V2.0, there are an optional dictionary and three translators: DeepL, Papago, and Offline
+
+DICTIONARY PROGRAM: 
+Go to dictionary program folder and click on the exe
+The program listened to clipboard and will offer text highlighting and definition lookup
+
+
+PAPAGO:
+It seemed that Papago's accuracy is better than Google so I included it in this version
+It can take around 30-45 seconds for Papago to setup, however it is much faster than DeepL when started
+You should be able to see "Hello Papago" when it done setting up
+
+
+OFFLINE MODEL GUIDE:
+For offline mode, I replace the big model (2.5GB) with the base model (900MB) so the program is lighter
+
+Use big model if you have at least 8GB RAM and above.
+Use small and base model if you have 4GB RAM and above.
+
+To replace a model, head to this website http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/
+Get the model of your choice for Japanese-to-English
+
+Copy that model (ex: small.pretrain.pt) to offlineTranslation/fairseq/japaneseModel
+Remove the current "big.pretrain.pt" model 
+Change your model name to "big.pretrain.pt"
+
+
+DEBUGGING:
+Some users complained about the program not listening to clipboard. 
+There are two things you can try. 
+1st, join my discord (link on the youtube videos on my channel)
+2nd, download vc_redist.x86.exe on Microsoft page
+
+
+GITHUB:
+https://github.com/leminhyen2/Sugoi-Japanese-Translator
+Edit straight on this folder then commit 
+You should let me know, so I can check then merge your edit.
