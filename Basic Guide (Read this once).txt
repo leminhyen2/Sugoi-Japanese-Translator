@@ -4,6 +4,7 @@ SETTINGS:
 In V2.0, you can now easily change translation language to other language like Spanish or French, or many more
 Open Settings.json with notepad or notepad++ then edit the translation language abbreviation to your language of choice 
 Check the DeepL and Papago URL for the abbreviation of translation language
+You can do the same for even original language like translating Spanish to English instead of Japanese to English
 
 
 DICTIONARY PROGRAM: 
