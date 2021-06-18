@@ -27,7 +27,6 @@ class SYSTRAN {
         
         await this.page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
         await this.page.setDefaultNavigationTimeout(userSettings.DefaultNavigationTimeout); 
-        console.log( "* Set default navigation timeout to " + userSettings.DefaultNavigationTimeout + " msec *" )
         await this.page.goto(`https://translate.systran.net/?source=${this.originalLanguage}&target=${this.translationLanguage}&input=${this.initialPhrase}`);
 
         await this.page.waitForSelector(this.inputTextboxID);
