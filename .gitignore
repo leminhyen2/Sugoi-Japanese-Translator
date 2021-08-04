@@ -13,6 +13,8 @@ offlineTranslation/debug.log
 
 Power-Source/*
 
+DictionaryProgram/*
+
 userInterface/*
 !userInterface/resources
 userInterface/resources/*
