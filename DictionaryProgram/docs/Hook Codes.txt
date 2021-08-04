@@ -1,0 +1,92 @@
+The format is:
+
+[Alias]Type:String:Subcontext:Length:Charset@address:module:function
+
+[Alias] is optional.  If included, it is used as the name of the context in the context manager.  If two Contexts have the same Alias, then they are treated as a single context.  If Alias is not given, then the Context's name is the text of the entire hooking command.  Note that the settings of individual are saved based on the Context name, and using an Alias changes the name, so the settings for pre-existing contexts will be lost when adding an Alias.
+
+Type is case insensitive and has 2 basic types
+char - 1-byte character(s). Everything but UTF16, basically. Character sets in which one character can map to one or more bytes are also considered char strings. Charset indicates the exact character set being used. 0 or no Charset value indicates the current locale's character set.
+wchar - 2-byte character(s). UTF16 only. Charset ignored. Length is in terms of pairs of bytes.
+
+And (currently) 3 advanced types that can be used in place of a basic type.
+SJIS - corresponds to a character set of 932 (SJIS) and a type of char. Just easier to remember than 932, though generally not really needed, as char should work fine even without a Charset value.
+UTF8 - corresponds to a character set of 65001 (UTF8) and a type of char.
+UTF16 - same as wchar
+
+If "BE" (Big Endian) follows the type, like "UTF16BE" or "SJISBE", sets of adjacent bytes are assumed to be flipped. Meant to correspond to the 'B' code of AGTH. Currently only works with UTF16, UTF16*, char, and SJIS (Not char* or SJIS*).
+
+A "char" contains a character stored as a 32-bit value.  All values not part of the character should be 0.  0x000083be corresponds to the character corresponding to 0x83 followed by 0xbe.  Note that casting the string to an integer will result in the opposite order.  A "charbe" should have the order of the non-zero bytes reversed.  Note that one character must be contained in the value, not one byte.  If length is -1 or not given, for chars, the bytes are put into an array and length is set to the number of non-zero bytes in the value.  For charbe, CharNextEx is used to determine the number of bytes that make up a single character.  If a length >= 0 is given, it's assumed that the character takes up that many bytes.  If multiple characters are within the length, all of them will be passed along.
+
+"wchar" values are always assumed to only have one character, so the length is ignored.
+
+If '*' follows the type (If "BE" is present, must follow that, too), then the value of "String" is a pointer to a string with a length of Length. If Length is -1 or not given, then the string is assumed to be null-terminated. If '*' is not present, String *contains* a single character value, or, if Length is 1, a single byte that might not represent an entire character. Just to be clear - no '*' means the string contains what you want, rather than points to it, so it's not quite equivalent to using '*' and a Length of 1.  Note that if a null character is found before Length bytes, the string is terminated at that character, after the entire string is mapped to UTF16.
+
+
+String must be present and cannot be null. Subcontext, Length, and Charset are all optional (Optionally, the preceding colon can be left off as well, if no subsequent values appear as well). If multiple Subcontexts are desired, they can be separated by semicolons (...:Subcontext1;SubContext2;...:Length:...). All 4 values are given in terms of numeric expressions using numbers, arithmetic operators, register values, and pointer dereferences.  If no Length is given, it's assumed to be -1.  If no Subcontext is given, the address of the calling function will (hopefully) be used instead. Most codes don't need Length or Charset (Or even Subcontext), but they may be useful in some cases, such as when hooking Windows API functions. A Subcontext of 0 means no subcontext (Could use any other constant as well, but 0 will hide the value entirely).
+
+Numbers are given in base 10, unless preceded by 0x, in which case they're in hex. registers are identified by name (Not case sensitive), and pointer dereferencing is indicated by surrounding the value in square brackets: []. Also _X is the same as [ESP + X]. Only the 8 32-bit general purpose registers are supported.
+
+Currently, only +, -, *, /, %, <<, >>, ^, |, &, !, ~ and parentheses are supported. For simplicity, shifting and binary operations are given the same priority as *, /, and % in terms of order of operations, though this may change.  Note that all operations except division are unsigned.  As all values are 32-bit, the only other operation where this matters is >>, I believe.
+
+
+The "@address:module:function" is almost identical to AGTH's. Address, unlike everything else, is in hex. Module and function are both optional (Though with a function name, must also have a module name). The only difference is @module:function also works, and assumes an offset of 0.  Without a module, address is an absolute address.
+
+
+Some examples, some with what I believe are their corresponding AGTH codes, though I could be wrong. AGTH codes stolen from Freaka:
+
+char:EDX@47E510
+/HA-C@47E510 // Note that in some cases, may have to and-out the high order bits.  That is, use something like "EDX&0xFFFF" instead of just "EDX".  Or may not.
+
+char*:[esp+0x100C]@42FF4E
+/HS100C@42FF4E
+
+char*:_0x100C@42FF4E
+/HS100C@42FF4E
+
+char*:_4108@42FF4E
+/HS100C@42FF4E
+
+wchar:[EBX-8]@46B0FA
+/HW-10*-8@46B0FA
+
+wchar*:EBX-8::1@46B0FA
+/HW-10*-8@46B0FA
+
+char:[ESP+4]:[ESP+0x48]@4180A0
+/HA4:48@4180A0
+
+wchar*:[10+2*_[EAX+ECX<<4]]::25@56B0FA
+
+// Uses EUC_JP, though no idea why a game would use that.
+char*:[10+2*(EAX+ECX<<4)]:::20932@56B0FA
+
+
+More complete /H code conversion list.  Note that the type (/HA, /HS, etc, and char, char*, etc) has no effect on the string address:
+
+/HA-4 = char:EAX
+/HS-4 = char*:EAX
+
+/HA-4*0 = char:[EAX]
+/HS-4*0 = char*:[EAX]
+
+/HA-4*7 = char:[EAX+7]
+/HS-4*7 = char*:[EAX+7]
+
+/HA8 = char:[ESP+8] = char:_8
+/HS8 = char*:[ESP+8] = char*:_8
+
+/HA8*7 = char:[[ESP+8]+7] = char:[_8+7]
+/HS8*7 = char*:[[ESP+8]+7] = char*:[_8+7]
+
+/HA8*-4 = char:[[ESP+8]-4] = char:[_8-4]
+/HS8*-4 = char*:[[ESP+8]-4] = char*:[_8-4]
+
+/HA-4*-8 = char:[EAX-8]
+/HS-4*-8 = char*:[EAX-8]
+
+/HA maps to char
+/HS maps to char*
+/HW maps to wchar
+/HQ maps to wchar*
+/HB maps to charbe
+/HH is not currently supported.  Note that char:::2 (That is, a length of 2) may work (Or char* or charbe, not sure about the byte ordering), but only if the location holds an exact number of characters - that is, either one character that takes 2 bytes or 2 characters that take 1 byte each.  Half of a character with the rest occuring in a subsequent/previous call will not work.

@@ -1,0 +1,240 @@
+Changelog:
+
+2018.07.21 (r190) (Unofficial)
+Fixed Google
+
+2018.05.16 (r189) (Unofficial)
+* Fixed Baidu
+Note: Due to some initialization the first request will take 2-3 seconds, afterwards it should be the usual speed.
+* Removed language restrictions on JParser
+With an EDICT compatible dictionary - like this Chinese dictionary https://www.mdbg.net/chinese/dictionary?page=cc-cedict -
+it is possible to get JParser to parse words in languages other than Japanese.
+Note: Conjugations.txt needs to be present in the dictionaries folder or the actual dictionary will not be parsed.
+Also while the name of the EDICT dictionary is irrelevant, it can not have a file type like ".txt", TA will automatically convert the dictionary to a .bin file.
+
+2017.09.16 (r188) (Unofficial)
+Probably fixed Bing
+
+2017.09.16 (r187) (Unofficial)
+Excite fixed (they just removed support for http ... took a while to figure that out)
+
+2017.08.07 (r186) (Unofficial)
+Baidu (fanyi) added
+
+2017.07.21 (r185) (Unofficial)
+LEC Online - Even the proper online service is out of translations - no real way to fix this
+Bing - Fixed
+Honyaku - Removed
+SDL - Fixed
+Baidu - Fixed
+Babelfish - Fixed
+
+2016.09.08 (r184)
+* Updated Google and Babylon.
+* Bing is back.
+* Added Yandex.Translate online translator.
+* Added a workaround for clipboard update locking by other programs.
+
+2016.03.16 (r183)
+* Updated online translators.
+* Disabled FreeTranslation online translator: server seems to be dead.
+* Disabled Bing online translator: server requires magic appId value, old method of getting it doesn't work anymore.
+* Split hook files into separate archive.
+
+2016.01.03 (r182)
+* Updated Google translator.
+
+2015.07.25 (r181)
+* Updated WWWJDIC to reduce server load and support https servers.
+
+2015.07.24 (r180)
+* Updated online translators.
+
+2015.05.14 (r179)
+* Added Baidu and Infoseek online translators.
+* Sped up substitutions editor dialog.
+* Tweaked JParser fullwidth character matching.
+
+2015.04.29 (r178)
+* Improved JParser accuracy and speed.
+* Improved loading speed of UserDict.txt.
+* Some bugfixes.
+* Refactoring.
+
+2015.04.01 (r177)
+* Improved JParser.
+* Rewritten EUC-JP conversion, so folder ConversionTables and euc-jp.bin file in it are no longer needed.
+* Added new online and offline translator: LEC.
+
+2015.03.27 (r176)
+* Major changes to all online translators, added Babylon, SDL and SysTran engines.
+* Corrected Romaji furigana mapping.
+
+2015.03.25 (r175)
+* Updated all online engines so everything works again.
+* Removed OCN since it's no longer available.
+* Some cleanup.
+
+0.4.9
+* Fixed MeCab/JParser getting stuck when starting a new translation before the last is fixed.
+* Fixed interface lockup while mousing over an item in MeCab while JParser is running.
+* Menu translation will now translate column headings in ListViews (Needed this for the AA launcher)
+* Fixed ATLAS config crash.
+* Global hotkey support. Toggle under "File" menu (Tools is kinda big already). Currently only really supports history navigation. May add more later.
+
+0.4.8
+* Added history. Logs both original text and translations (For online translators). It logs up to 20 MB of original text, and whatever translations are associated with it. Currently only way to force a retranslation is to toggle one of several options (Autoreplace half-width characters, src/dest language, modify substitutions).
+* Fixed deadlock bug on MaCab mouse over while JParser is running.
+* Fix corrupting built-in text hooker settings when launch failed. Suspect no one uses this, anyways.
+* Drag/dropping an exe onto TA to open up the injection dialog now actives TA.
+
+0.4.7
+* JParser and MeCab each use their own thread (Mostly).
+* Changed conjugation table format to JSON - plan to do this to a lot of other files (Being careful not to mess up game settings or substitution tables). Currently have way too much file loading code.
+
+0.4.6
+* Fix WWWJDIC
+* Fix closing injection dialog
+* Updating process list 10+x faster
+* Process list autoupdates
+* Fixed bug that would result in injecting into wrong process when one program is running multiple times.
+* Updated included AGTH version
+
+0.4.5
+* Added bing support.
+* Updated Honyaku code (They didn't try and block TA, they just modified their HTML)
+* Fixed AGTH command line code.
+* Replaced "/GL" with "/SM" compile option, resulting in faster builds when one has a lot of cores.
+
+0.4.4
+* Regular expressions are now compiled
+* Injection validation when using addresses relative to dlls (Or function addresses in dlls) should be fixed.
+* Added option to create shortcuts. They'll launch TA (If it's not running) and try to launch the game using the current injection settings (Injection settings that you'd get at the launch screen - the current settings are not saved - it always uses the most recently used ones).
+* Appropriated some of Setsumi's code to make tooltips larger.
+
+0.4.3
+* Multiple subcontexts now supported.  Separate them with semi-colons.  AGTH code converter will add two subcontexts, when appropriate.
+* Using aliases for hooks added.  Prefix a hook with "[Alias Text]" and that's what will be displayed on the context manager screen as the hook's name.  Makes it easier to see context strings.
+* Locale selection added to injection dialog.
+* "Hook delay" added to injection dialog.  Actually doesn't delay hooking, delays how long before hooks that use filtering based on calling function's dll are enabled.  Generally only the default hooks do this.  Increasing this delay may circumvent issues with games that crash when launched with AGTH, but work fine when injected after launching.
+* Added "!" and "~" operators.
+
+* Stomp's admin privilege fix when using some 3rd party software added.
+* Excite fixed
+* Fixed sanity testing for injection addresses, so when specify a dll or exe name in a text hook, shouldn't erroneously think it's an error when the module isn't loaded in the current address space.
+* Fixed some JParser dicrionary common word parsing, when using versions of edict with entL entries.  Also changed treatment of Kanji entries when only their corresponding Hiragana are marked as common.
+* Fixed substitution matching Hiragana with Katakana and vice versa.
+* Fixed a clipboard-related crash bug.
+* Fixed hooks causing crashes when relocating call/jumps (Hopefully...)
+* Fixed AGTH repeat filter length placement (oops).
+
+0.4.2c
+* Fixed current context text not updating promptly when loop handling enabled.
+* Stomp's tool tip font configuration code added.
+
+0.4.2b
+* Fixed substitution loading/deleting.
+* Fixed << and >>.
+
+0.4.2
+* AGTH code conversion tool.
+* Injection code checker added.
+* New child process injection handler (Really nifty injection code for that...). Should be a little more robust than before.
+* Option not to inject into child processes added.
+* Auto copy to clipboard added.
+* Both extension filters fixed.
+* Both eternal repeat filters fixed/upgraded.
+* Phrase repeat filter fixed/upgraded.
+* OpenMP/MSVC 2008 SP1 runtime requirement removed
+* char/charBE fixed
+* GetGlyphOutline fixed
+* Copy to clipboard crash when auto translate disabled fixed.
+* Slightly improved dll injection error handling.
+* Added support for loading substitutions with 0-length replacement strings (i.e. nothing).
+
+0.4.1
+* More context/filter options.
+* Repeated phrase filter now handles cases where phrase is being extended by a couple characters each time (123412345123456, etc). Extension filters no longer really needed, unless the repeat starts out too short.
+* Line break options added.
+* Option to handle eternally looping text.
+* Option to ignore text without any Japanese characters.
+* Text which substitution rules reduce to nothing no longer overwrites translated text.
+* Log length limit added.
+* Options to manage default internal text hooks added.
+* Clipboard treated as a context. Its default settings should mirror the old handling.
+
+0.4.0
+* Added it's own text hooking engine. Probably still buggy.
+* Fixed excessive redrawing when a hidden furigana window had clipboard translation enabled.
+* Works with new, even more poorly formatted edict files.
+* Handles EUC_JP characters that Windows does not (Doesn't use them properly with WWWJDIC at the moment, however). Only really fixes loading edict files with those characters.
+* Fixed right clicking when full screen.
+* Fixed not checking auto Hiragana mode.
+* Less picky when reading MeCab output.
+
+
+0.3.5
+* JParser now has an option to use mecab to aid in word detection.
+* Mecab now hooked up to JParser popup definitions.
+* Auto to hiragana option added. When a string contains no Japanese characters, will automatically convert to hiragana before translating, when enabled and source language is Japanese. Disabled by default.
+* Minimal plugin support added. Will only add to it if there's any demand for/interest in it.
+* Now supports compressed dictionaries. To use them, just stick edict2.gz or similar in the dictionaries directory.
+* A couple to/from hex functions added to right click menu. Mostly useful when searching binary files with hex editors and the like.
+* Option to disable substitutions added.
+* Default translation direction now from Japanese to English.
+* Config dialog layout fixed.
+* Fixed JParser configuration flags corruption bug.
+
+0.3.4
+* Added a couple options to hide and reformat JParser tooltips, most of which were at Setsumi's suggestion.
+* Added a hotkey for substitution menu.
+* Added logging option to injection menu.
+* JParser now breaks untranslated words at spaces (Mecab still does not).
+* Use kana color for dictionary entries without any Kanji text.
+* Use kanji color for full-width ASCII text used in some dictionary entries.
+* Fixed mysteriously disappearing * profile.
+* Fixed JParser tooltip coloring of parens.
+* Fixed code for displaying definitions on own line in JParser.
+* Fixed bug that would remove leading/trailing spaces from the clipboard when copying text.
+
+0.3.3
+* Substitution dialog updated. Clear and delete buttons added, profile sort order changed, initial selection choice changed. Number of lines for each profile also displayed, though currently only updated when entering the dialog.
+* Fix for words with both common and uncommon spellings. May improve JParser results.
+* Proper names prefixed with "(proper name)" in JParser, and names appear at bottom of list.
+* JParser dictionary format changed. Dictionaries should now be about 10-15% smaller.
+* JParser no longer puts "Furigana" above Japanese centered dot separators.
+* Japanese repeat marker now recognized as Kanji. Affects auto-clipboard detection, but that's about it.
+* Save to/from languages as strings, rather than integers. More robust against future language additions, though will lose your setting when upgrading to 0.3.3.
+* Cut/copy/paste/etc removed from furigana subwindows' right-click menu.
+* Minor memory leak when adding substitution lines fixed.
+* Added support for FreeTranslations English to Japanese and German to English (?) options. Don't plan to add any more, those just happen to use the same server as Japanese to English.
+
+0.3.2
+* Can select from/to languages (Probably buggy).
+* Added convert to romaji to right click menu (Hiragana/Katakana only).
+* Fixed adding duplicate strings to substitution list.
+* Fixed font color not working.
+* Fixed not populating strikout/underline settings of font selection dialog.
+* Fixed minor bug with a couple very rare characters in hiragana/katakana conversion.
+
+0.3.1
+* Fixed crash on some systems when going to the subsitutions config page when no substitutions have been created.
+* Fixed reordering RGB color data in JParser/Mecab config screens.
+* Fix for loading JParser words with furigana highlight color.
+* No longer color delimiters around Hiragana characters in tooltip display.
+* Changed default tooltip Kanji color slightly.
+* Fixed tooltip parentheses coloring bug.
+* Improved tooltip wordwrap algorithm (Now break after most punctuation).
+* Added enamdict support. Any dictionary that starts with "enam" is now heavily filtered. Only exact Katakana matches surrounded by non-katakana characters are allowed from such dictionaries. enamdict worked before, but would give so many hits to every imaginable character combination as to swamp out everything else.
+* Fixed updating clipboard chain when quitting through menu or via keyboard shortcut.
+
+
+0.3.0
+* Works with the bizarrely modified edict format.
+* Configurable tooltip colors added for Jparser. Note that the idea and coloring scheme come from Setsumi.
+* Can set per-game pre-translation substitutions. Must set up a launch profile for a game first. Which substitutions are used is determined by what games are running. Will use all strings for all running games and the default one (*). Note that it doesn't affect menu translations.
+* Fixed clipboard bug on close. Line to restore clipboard chain was never reached.
+* Fixed a bug with escape sequences in substitutions.
+* No longer have to have menu translation enabled for DCBS hack to work.
+* Added handling of new format for long google results.
+* Fixed a bug where code to remove "potential potential" conjugations could cause crashes. 

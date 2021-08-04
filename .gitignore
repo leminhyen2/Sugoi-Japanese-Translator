@@ -11,7 +11,7 @@ offlineTranslation/fairseq/japaneseModel
 offlineTranslation/package-lock.json
 offlineTranslation/debug.log
 
-DictionaryProgram/*
+Power-Source/*
 
 userInterface/*
 !userInterface/resources
