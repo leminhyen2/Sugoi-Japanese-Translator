@@ -5,11 +5,13 @@ backendServer/package-lock.json
 backendServer/debug.log
 
 offlineTranslation/node_modules
-offlineTranslation/fairseq/Python38
+offlineTranslation/Python38
 offlineTranslation/fairseq/build
 offlineTranslation/fairseq/japaneseModel
 offlineTranslation/package-lock.json
 offlineTranslation/debug.log
+
+DictionaryProgram/*
 
 userInterface/*
 !userInterface/resources
