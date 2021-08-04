@@ -26,6 +26,7 @@ class Google {
         this.page = await this.browser.newPage();
         
         await this.page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
+        await this.page.setDefaultNavigationTimeout(userSettings.DefaultNavigationTimeout); 
         //await this.page.goto(`https://papago.naver.com/?sk=${this.originalLanguage}&tk=${this.translationLanguage}`);
         await this.page.goto(`https://translate.google.com/?sl=${this.originalLanguage}&tl=${this.translationLanguage}&text=${this.initialPhrase}&op=translate`);
 

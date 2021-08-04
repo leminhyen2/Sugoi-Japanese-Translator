@@ -1,5 +1,6 @@
 {
     "hideBrowserWindowTrueOrFalse": true,
+    "DefaultNavigationTimeout": 30000,
     "DeepL": {
         "originalLanguage": "ja",
         "translationLanguage": "en",
