@@ -1,11 +1,8 @@
 backendServer/node_modules
-backendServer/nodejs
-backendServer/node.exe
 backendServer/package-lock.json
 backendServer/debug.log
 
 offlineTranslation/node_modules
-offlineTranslation/Python38
 offlineTranslation/fairseq/build
 offlineTranslation/fairseq/japaneseModel
 offlineTranslation/package-lock.json
