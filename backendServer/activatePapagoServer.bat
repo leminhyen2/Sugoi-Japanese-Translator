@@ -1,2 +1,2 @@
 color 9
-node.exe papagoServer.js
+"../Power-Source/Node12/node.exe" papagoServer.js

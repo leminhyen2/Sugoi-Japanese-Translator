@@ -1,2 +1,2 @@
 color 9
-node.exe deepLserver.js
+"../Power-Source/Node12/node.exe" deepLserver.js
