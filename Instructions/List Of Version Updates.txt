@@ -12,3 +12,6 @@ V1.6.5:
 Change new copied text listening module (reduce lag and anti-malware block)
 Add a new line in batch script to force start from current directory
 Remove unnecessary files
+
+V2.3: 
+Code Refactoring (cleanup)

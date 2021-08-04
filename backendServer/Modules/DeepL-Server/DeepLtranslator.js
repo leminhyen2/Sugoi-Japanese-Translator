@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const userSettings = require("../settings.json")
+const userSettings = require("./settings.json")
 
 class DeepL {
     constructor() {

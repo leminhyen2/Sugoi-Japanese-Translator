@@ -1,17 +1,17 @@
 const puppeteer = require('puppeteer');
 
-const userSettings = require("../settings.json")
+const userSettings = require("./settings.json")
 
-class Google {
+class Papago {
     constructor() {
         this.browser
         this.page
 
-        this.originalLanguage = userSettings.Google.originalLanguage
-        this.translationLanguage = userSettings.Google.translationLanguage
-        this.inputTextboxID = userSettings.Google.inputTextboxID
-        this.resultTextboxID = userSettings.Google.resultTextboxID
-        this.initialPhrase = userSettings.Google.initialPhrase
+        this.originalLanguage = userSettings.Papago.originalLanguage
+        this.translationLanguage = userSettings.Papago.translationLanguage
+        this.inputTextboxID = userSettings.Papago.inputTextboxID
+        this.resultTextboxID = userSettings.Papago.resultTextboxID
+        this.initialPhrase = userSettings.Papago.initialPhrase
 
         this.currentTranslationText = ""
         this.copiedText = ""
@@ -27,13 +27,11 @@ class Google {
         
         await this.page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
         await this.page.setDefaultNavigationTimeout(userSettings.DefaultNavigationTimeout); 
-        //await this.page.goto(`https://papago.naver.com/?sk=${this.originalLanguage}&tk=${this.translationLanguage}`);
-        await this.page.goto(`https://translate.google.com/?sl=${this.originalLanguage}&tl=${this.translationLanguage}&text=${this.initialPhrase}&op=translate`);
-
+        await this.page.goto(`https://papago.naver.com/?sk=${this.originalLanguage}&tk=${this.translationLanguage}`);
         await this.page.waitForSelector(this.inputTextboxID);
         await this.page.waitForSelector(this.resultTextboxID)
         
-        //this.initiateTranslation(this.initialPhrase)
+        this.initiateTranslation(this.initialPhrase)
     }
 
     async launchBrowser() {
@@ -58,8 +56,7 @@ class Google {
         await input.type("");
 
         await this.page.focus(this.inputTextboxID);
-        await this.page.goto(`https://translate.google.com/?sl=${this.originalLanguage}&tl=${this.translationLanguage}&text=${textToBeTranslated}&op=translate`);
-
+        await this.page.goto(`https://papago.naver.com/?sk=${this.originalLanguage}&tk=${this.translationLanguage}&st=`+textToBeTranslated);
     }
 
     async checkIfCurrentTranslationTextChanged(thisPage, resultTextboxID) {
@@ -91,4 +88,4 @@ class Google {
 
 }
 
-module.exports = Google
+module.exports = Papago

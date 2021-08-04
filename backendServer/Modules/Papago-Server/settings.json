@@ -1,0 +1,12 @@
+{
+    "hideBrowserWindowTrueOrFalse": true,
+    "DefaultNavigationTimeout": 30000,
+    "websocketServerPortNumber": 14367,
+    "Papago": {
+        "originalLanguage": "ja",
+        "translationLanguage": "en",
+        "inputTextboxID": "#txtSource",
+        "resultTextboxID": "#txtTarget",
+        "initialPhrase": "こんにちは Papago"
+    }
+}

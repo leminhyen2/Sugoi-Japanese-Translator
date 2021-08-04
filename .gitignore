@@ -1,12 +1,11 @@
 backendServer/node_modules
 backendServer/package-lock.json
-backendServer/debug.log
-
-offlineTranslation/node_modules
-offlineTranslation/fairseq/build
-offlineTranslation/fairseq/japaneseModel
-offlineTranslation/package-lock.json
-offlineTranslation/debug.log
+backendServer/Modules/Offline-Translation-Server/offlineTranslation/fairseq/debug.log
+backendServer/Modules/Offline-Translation-Server/offlineTranslation/fairseq/build
+backendServer/Modules/Offline-Translation-Server/offlineTranslation/fairseq/japaneseModel
+backendServer/offlineTranslation/node_modules
+backendServer/offlineTranslation/package-lock.json
+backendServer/offlineTranslation/debug.log
 
 Power-Source/*
 

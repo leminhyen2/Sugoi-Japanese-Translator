@@ -1,13 +1,13 @@
 pushd %~dp0
 
 cd backendServer
-start /min cmd /c "activateOfflineBackend.bat" 
+cd Modules
+cd Offline-Translation-Server
+
+start /min cmd /c "activate.bat" 
 
 cd ..
-
-cd offlineTranslation
-start /min cmd /c "activateOfflineTranslationServer.bat" 
-
+cd ..
 cd ..
 
 cd userInterface

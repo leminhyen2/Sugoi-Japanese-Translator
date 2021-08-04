@@ -1,5 +1,5 @@
 
-const listOfVariablesData = require("./listOfVariablesData.json")
+const listOfVariablesData = require("./settings.json")
 const websocketServerPortNumber = listOfVariablesData.websocketServerPortNumber
 
 const WebSocket = require('ws');
